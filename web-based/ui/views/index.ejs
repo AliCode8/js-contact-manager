@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Manager</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@600&display=swap');
+
+* {padding: 0;margin: 0;}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: 'Ysabeau', sans-serif;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+th {
+    background-color: lightblue;
+}
+
+#actionsPart{
+  background-color: lightgreen;
+}
+
+form {
+    margin-bottom: 10px;
+}
+
+#delete-btn {
+  width: 65px;
+  height: 35px;
+  color:white;
+  background-color: red;
+  border: none;
+  border-radius: 9px;
+}
+
+.editingPropertyInpurt {
+  width: 150px; height: 25px;
+  font-size: 15px;
+}
+
+#editingBtn {
+  width: 65px; height: 35px; border: none; background-color: lightgreen;border-radius: 9px;
+  margin-right: 6px;
+}
+
+header {
+  padding: 14px;
+  background-color: cyan;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  margin: 10px;
+}
+
+#test1234 {
+  display: flex;
+}
+
+.mainClass {
+  background-color: beige; padding: 10px; border: 1px rgb(233, 233, 195) solid; border-radius: 9px;
+}
+
+.secondClass {
+  margin-top: 10px;
+  background-color: beige; padding: 10px; border: 1px rgb(233, 233, 195) solid; border-radius: 9px;  
+}
+
+.secondClass input {
+  width: 150px; height: 25px;
+  font-size: 15px;
+  padding: 3px; margin: 5px;
+} .secondClass button {
+  width: 110px; height: 40px; border: none; background-color: lightgreen;border-radius: 9px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Contact Manager</h1>
+</header>
+
+<main>
+  <div class="mainClass">
+    <h2 style="font-family: 'Roboto', sans-serif;">All Contacts</h2>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>lastName</th>
+        <th>username</th>
+        <th>phone</th>
+        <th id="actionsPart">Actions</th>
+      </tr>
+
+      <% Object.entries(contacts).forEach(([id, contact]) => { %>
+
+        <tr>
+        <td style="font-family: 'Roboto', sans-serif;"><%= id %></td>
+        <td><%= contact.name %></td>
+        <td><%= contact.lastName %></td>
+        <td><%= contact.username %></td>
+        <td style="font-family: 'Roboto', sans-serif;"><%= contact.phone %></td>
+        <td id="test1234">
+          <form action="/edit/<%= id %>" method="post">
+            <input type="text" name="property" placeholder="Property to edit" class="editingPropertyInpurt">
+            <input type="text" name="editedProperty" placeholder="Edited property" class="editingPropertyInpurt">
+            <button type="submit" id="editingBtn">Edit</button>
+          </form>
+          <form action="/delete/<%= id %>" method="get">
+            <button type="submit" id="delete-btn">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </div>
+  
+  <div class="secondClass">
+    <h2 style="font-family: 'Roboto', sans-serif;">Add Contact</h2>
+    <form action="/add" method="post">
+      <input type="text" name="id" placeholder="ID" required>
+      <input type="text" name="name" placeholder="Name" required><br>
+      <input type="text" name="lastName" placeholder="Last Name" required>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <button type="submit">Add Contact</button>
+    </form>
+  </div>
+</main>
+
+</body>
+</html>
