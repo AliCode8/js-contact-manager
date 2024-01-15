@@ -12,7 +12,7 @@
     "console",
     "module"
   ],
-  "author": "AliCoder(HidroCyber)",
+  "author": "qu.cipherr",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
