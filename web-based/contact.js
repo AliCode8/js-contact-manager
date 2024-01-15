@@ -2,7 +2,7 @@
 
 * In the name of Developer of universe
 * Module Contact Manager project
-* By AliCoder 
+* By qu.cipherr
 
 */
 
