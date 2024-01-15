@@ -1,0 +1,39 @@
+Add contact:
+>> addContact("1", "name", "lastname", "username", "phone");
+
+Edit contact:
+>> editContact(1, 'name', 'ali')
+
+Delete contact:
+>> deleteContact(1)
+
+Read contacts:
+>> readContacts(1, 'name')
+
+Cloning contact:
+    1. cloning the full contact to another contact.
+    first you need two contacts, because you will clone the first-one to second one.
+
+    usage:
+    >> cloneContactWithId(id_1, id_2)
+
+    Explanation:
+    id_1 equals to that contact that you want to insert the cloned items
+    id_2 eqauls to that contact that you want to insert items to id_1
+    -----
+    2. cloning the custom items to a contact
+
+    usage:
+    cloneContactWithIdAndProperty(id_1, id_2, property_toBeCloned)
+
+    Explanation:
+    id_1 is that contact that you want clone items to it
+    id_2 is that contact that you want clone items to id_1
+    property_toBeCloned is that items that you want clone from id_2 to id_1
+
+Import Information:
+    1. Import selected element Information
+    usage: importInformation(id, property)
+
+    2. Import fully Information
+    usage: importFullyInformation(id)
